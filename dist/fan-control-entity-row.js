@@ -14,7 +14,7 @@ class CustomFanRow extends Polymer.Element {
 		    margin-left: 2px;
                     margin-right: 2px;
     	            background-color: #759aaa;
-	            border: 1px solid lightgrey; 
+	            border: 1px solid lightgrey;
 		    border-radius: 4px;
 	            font-size: 10px !important;
 		    color: inherit;
@@ -22,7 +22,7 @@ class CustomFanRow extends Polymer.Element {
 	            float: right !important;
 		    padding: 1px;
 		}
-				
+
                 </style>
             	  <hui-generic-entity-row hass="[[hass]]" config="[[_config]]">
                     <div class='horizontal justified layout' on-click="stopPropagation">
@@ -77,7 +77,7 @@ class CustomFanRow extends Polymer.Element {
 
     setConfig(config) {
         this._config = config;
-		
+
 	this._config = {
             customTheme: false,
 	    customIsOffColor: '#f44c09',
@@ -99,19 +99,19 @@ class CustomFanRow extends Polymer.Element {
 	const custOnHiClr = config.customIsOnHiColor;
 	const custOffSpdClr = config.customIsOffSpdColor;
 	const custOffClr = config.customIsOffColor;
-		
-						
-		
+
+
+
 	let speed;
         if (stateObj && stateObj.attributes) {
             speed = stateObj.attributes.speed || 'off';
         }
-		
+
 	let low;
 	let med;
 	let high;
 	let offstate;
-		
+
 	if (stateObj && stateObj.attributes) {
 	    if (stateObj.state == 'on' && stateObj.attributes.speed == 'low') {
 		    low = 'on';
@@ -123,12 +123,12 @@ class CustomFanRow extends Polymer.Element {
 			offstate = 'on';
 		}
 	}
-		
+
         let lowcolor;
 	let medcolor;
 	let hicolor;
 	let offcolor;
-				
+
 	if (custTheme) {
 
 		if (low == 'on') {
@@ -142,13 +142,13 @@ class CustomFanRow extends Polymer.Element {
 		} else {
 			medcolor = 'background-color:' + custOffSpdClr;
 		}
-		
+
 		if (high == 'on') {
 			hicolor = 'background-color:'  + custOnHiClr;
 		} else {
 			hicolor = 'background-color:' + custOffSpdClr;
 		}
-		
+
 		if (offstate == 'on') {
 			offcolor = 'background-color:'  + custOffClr;
 		} else {
@@ -158,31 +158,31 @@ class CustomFanRow extends Polymer.Element {
   	} else {
 
   		if (low == 'on') {
-			lowcolor = 'background-color: var(--paper-toggle-button-checked-button-color)';
+			lowcolor = 'background-color: var(--switch-checked-color)';
 		} else {
-			lowcolor = 'background-color: var(--paper-toggle-button-unchecked-button-color)';
+			lowcolor = 'background-color: var(--switch-unchecked-color)';
 		}
-		
+
 		if (med == 'on') {
-			medcolor = 'background-color: var(--paper-toggle-button-checked-button-color)';
+			medcolor = 'background-color: var(--switch-checked-color)';
 		} else {
-			medcolor = 'background-color: var(--paper-toggle-button-unchecked-button-color)';
+			medcolor = 'background-color: var(--switch-unchecked-color)';
 		}
-		
+
 		if (high == 'on') {
-			hicolor = 'background-color: var(--paper-toggle-button-checked-button-color)';
+			hicolor = 'background-color: var(--switch-checked-color)';
 		} else {
-			hicolor = 'background-color: var(--paper-toggle-button-unchecked-button-color)';
+			hicolor = 'background-color: var(--switch-unchecked-color)';
 		}
-		
+
 		if (offstate == 'on') {
-			offcolor = 'background-color: var(--paper-toggle-button-checked-button-color)';
+			offcolor = 'background-color: var(--switch-checked-color)';
 		} else {
-			offcolor = 'background-color: var(--paper-toggle-button-unchecked-button-color)';
+			offcolor = 'background-color: var(--switch-unchecked-color)';
 		}
 	}
-	
-			
+
+
 	this.setProperties({
         	_stateObj: stateObj,
 		_isOffState: stateObj.state == 'off',
@@ -211,5 +211,6 @@ class CustomFanRow extends Polymer.Element {
     }
 
 }
-	
+
 customElements.define('fan-control-entity-row', CustomFanRow);
+
